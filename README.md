@@ -1,1 +1,0 @@
-# gnsrivastava.github.io
