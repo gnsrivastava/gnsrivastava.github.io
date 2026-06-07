@@ -427,6 +427,55 @@
     .award-item h3 { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
     .award-item p { font-size: 13px; color: var(--text-muted); }
 
+    /* ── CERTIFICATES ── */
+    .cert-list { max-width: 700px; margin: 0 auto; }
+    .cert-item {
+      display: flex;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .cert-item:last-child { border-bottom: none; }
+    .cert-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #e3f2fd;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      margin-top: 2px;
+    }
+    .cert-content h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+    .cert-content .cert-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .cert-content .cert-links {
+      display: flex;
+      gap: 12px;
+    }
+    .cert-content .cert-links a {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .cert-content .cert-links a:hover {
+      text-decoration: underline;
+    }
+
     /* ── CONTACT ── */
     .contact-grid {
       display: grid;
@@ -501,6 +550,7 @@
       <li><a href="#publications">Publications</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#awards">Awards</a></li>
+      <li><a href="#certificates">Certificates</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -896,31 +946,117 @@
   </div>
 </section>
 
-<!-- ═══ CONTACT ═══ -->
+<!-- ═══ CERTIFICATES ═══ -->
 <div class="section-alt">
-  <section class="section" id="contact">
-    <div class="section-header"><h2>Contact</h2></div>
-    <div class="contact-grid">
-      <div class="contact-item">
-        <i class="fas fa-envelope"></i>
-        <div><a href="mailto:gsriva2@lsu.edu">gsriva2@lsu.edu</a></div><p>
-        <div><a href="mailto:gnsforthestudy@gmail.com">gnsforthestudy@gmail.com</a></p></div>
+  <section class="section" id="certificates">
+    <div class="section-header"><h2>Certificates</h2></div>
+    <div class="cert-list">
+
+      <div class="cert-item">
+        <div class="cert-icon"><i class="fab fa-python"></i></div>
+        <div class="cert-content">
+          <h3>CutShort Certified Python — Advanced</h3>
+          <div class="cert-meta">Credential ID: 46281</div>
+          <div class="cert-links">
+            <a href="https://cutshort.io/certificate/46281" target="_blank"><i class="fas fa-external-link-alt"></i> Verify</a>
+          </div>
+        </div>
       </div>
-      <div class="contact-item">
-        <i class="fas fa-map-marker-alt"></i>
-        <div><span>Department of Biological Sciences<br/>Louisiana State University<br/>Baton Rouge, LA 70803</span></div>
+
+      <div class="cert-item">
+        <div class="cert-icon"><i class="fab fa-python"></i></div>
+        <div class="cert-content">
+          <h3>Python Data Structure</h3>
+          <div class="cert-meta">Coursera · Credential ID: QPXBR3RLGSQG</div>
+          <div class="cert-links">
+            <a href="https://www.coursera.org/account/accomplishments/verify/QPXBR3RLGSQG" target="_blank"><i class="fas fa-external-link-alt"></i> Verify</a>
+          </div>
+        </div>
       </div>
-      <div class="contact-item">
-        <i class="fab fa-linkedin"></i>
-        <div><a href="https://www.linkedin.com/in/gopal-narayan-srivastava/" target="_blank">Gopal Narayan Srivastava</a></div>
+
+      <div class="cert-item">
+        <div class="cert-icon"><i class="fas fa-brain"></i></div>
+        <div class="cert-content">
+          <h3>Artificial Intelligence Foundations: Machine Learning</h3>
+          <div class="cert-meta">LinkedIn · Credential ID: AS_MDYH1OXWhgYk9yQVtUTJYDT3i</div>
+          <div class="cert-links">
+            <a href="https://drive.google.com/file/d/12MteXvxep9tIEYPM3UWsPxLZ-AGf9uy6/view?usp=sharing" target="_blank"><i class="fas fa-external-link-alt"></i> Verify</a>
+          </div>
+        </div>
       </div>
-      <div class="contact-item">
-        <i class="fab fa-github"></i>
-        <div><a href="https://github.com/gnsrivastava" target="_blank">gnsrivastava</a></div>
+
+      <div class="cert-item">
+        <div class="cert-icon"><i class="fab fa-python"></i></div>
+        <div class="cert-content">
+          <h3>Programming for Everybody (Getting Started with Python)</h3>
+          <div class="cert-meta">Coursera · Credential ID: Y2WJJGCVYLJH</div>
+          <div class="cert-links">
+            <a href="https://www.coursera.org/account/accomplishments/certificate/Y2WJJGCVYLJH" target="_blank"><i class="fas fa-external-link-alt"></i> Verify</a>
+          </div>
+        </div>
       </div>
+
+      <div class="cert-item">
+        <div class="cert-icon"><i class="fas fa-code"></i></div>
+        <div class="cert-content">
+          <h3>Introduction to Programming in C</h3>
+          <div class="cert-meta">EICT, IIT Kanpur · Credential ID: 31564-12702-d06a8731226ea8a7</div>
+          <div class="cert-links">
+            <a href="https://drive.google.com/file/d/1Tj0gkMJX97WlvbE46iHurtG6NOIzaY9K/view?usp=sharing" target="_blank"><i class="fas fa-file-alt"></i> Certificate</a>
+            <a href="https://ict.iitk.ac.in/certificate-verification" target="_blank"><i class="fas fa-external-link-alt"></i> Verify</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-icon"><i class="fas fa-code"></i></div>
+        <div class="cert-content">
+          <h3>Advanced C Programming</h3>
+          <div class="cert-meta">LinkedIn · Credential ID: AXe_ga1SzruJWxxeUBWlQBZZPakK</div>
+          <div class="cert-links">
+            <a href="https://drive.google.com/file/d/1UbOtF5MGe-Ltmz5JT8Hygh9eX-DiGs5P/view?usp=sharing" target="_blank"><i class="fas fa-external-link-alt"></i> Verify</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-icon"><i class="fas fa-terminal"></i></div>
+        <div class="cert-content">
+          <h3>Learning Linux Command Line</h3>
+          <div class="cert-meta">LinkedIn · Credential ID: AQniwv8BboKpRsTBjTeKu2N0cqsq</div>
+          <div class="cert-links">
+            <a href="https://drive.google.com/file/d/1wjvdVYYcgl69ZKpLKlZObg_aPcfnxXa7/view?usp=sharing" target="_blank"><i class="fas fa-external-link-alt"></i> Verify</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 </div>
+
+<!-- ═══ CONTACT ═══ -->
+<section class="section" id="contact">
+  <div class="section-header"><h2>Contact</h2></div>
+  <div class="contact-grid">
+    <div class="contact-item">
+      <i class="fas fa-envelope"></i>
+      <div><a href="mailto:gsriva2@lsu.edu">gsriva2@lsu.edu</a></div><p>
+      <div><a href="mailto:gnsforthestudy@gmail.com">gnsforthestudy@gmail.com</a></p></div>
+    </div>
+    <div class="contact-item">
+      <i class="fas fa-map-marker-alt"></i>
+      <div><span>Department of Biological Sciences<br/>Louisiana State University<br/>Baton Rouge, LA 70803</span></div>
+    </div>
+    <div class="contact-item">
+      <i class="fab fa-linkedin"></i>
+      <div><a href="https://www.linkedin.com/in/gopal-narayan-srivastava/" target="_blank">Gopal Narayan Srivastava</a></div>
+    </div>
+    <div class="contact-item">
+      <i class="fab fa-github"></i>
+      <div><a href="https://github.com/gnsrivastava" target="_blank">gnsrivastava</a></div>
+    </div>
+  </div>
+</section>
 
 <footer>
   &copy; 2026 Gopal Narayan Srivastava
