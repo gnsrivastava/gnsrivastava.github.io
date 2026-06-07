@@ -26,10 +26,13 @@
       --text-muted: #606060;
       --border: #ccc;
       --link: #1565c0;
-      --link-hover: #efbf04;
+      --link-hover: #0d47a1;
       --sidebar-width: 300px;
     }
 
+    <!-- 
+    html { scroll-behavior: smooth; }
+    -->
     body {
       font-family: 'Lato', sans-serif;
       color: var(--text);
@@ -46,7 +49,7 @@
       top: 0; left: 0; right: 0;
       z-index: 1000;
       background: var(--primary-dark);
-      height: 60px;
+      height: 50px;
       display: flex;
       align-items: center;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
@@ -63,16 +66,16 @@
     .nav-brand {
       color: #fff;
       font-weight: 700;
-      font-size: 24px;
+      font-size: 17px;
       text-decoration: none;
     }
     .nav-links { list-style: none; display: flex; gap: 4px; }
     .nav-links a {
-      color: rgba(255,255,255,0.99);
-      font-size: 17px;
+      color: rgba(255,255,255,0.85);
+      font-size: 14px;
       font-weight: 400;
       padding: 6px 14px;
-      border-radius: 20px;
+      border-radius: 4px;
       text-decoration: none;
       transition: background 0.2s, color 0.2s;
     }
@@ -113,19 +116,19 @@
       color: var(--text);
     }
     .sidebar .role {
-      font-size: 17px;
+      font-size: 16px;
       color: var(--text-light);
       margin-bottom: 4px;
-      font-weight: 500;
+      font-weight: 300;
     }
     .sidebar .affiliation a {
-      font-size: 17px;
+      font-size: 15px;
       color: var(--text-light);
-      font-weight: 500;
+      font-weight: 400;
     }
     .sidebar-divider {
-      width: 100px;
-      height: 3px;
+      width: 40px;
+      height: 2px;
       background: var(--border);
       margin: 24px 0;
     }
@@ -133,7 +136,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 0;
+      gap: 10px;
     }
     .sidebar-links a {
       display: flex;
@@ -147,7 +150,7 @@
       transition: background 0.2s, color 0.2s;
     }
     .sidebar-links a:hover {
-      background: var(--text);
+      background: var(--primary);
       color: #fff;
     }
     .sidebar-interests {
@@ -156,11 +159,11 @@
       width: 100%;
     }
     .sidebar-interests h3 {
-      font-size: 17px;
+      font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.8px;
-      color: var(--text);
+      color: var(--text-muted);
       margin-bottom: 10px;
     }
     .sidebar-interests ul {
@@ -170,7 +173,7 @@
       gap: 6px;
     }
     .sidebar-interests li {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--text-light);
       display: flex;
       align-items: center;
@@ -188,16 +191,16 @@
       width: 100%;
     }
     .sidebar-education h3 {
-      font-size: 17px;
+      font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.8px;
-      color: var(--text);
+      color: var(--text-muted);
       margin-bottom: 10px;
     }
     .sidebar-education ul { list-style: none; }
     .sidebar-education li {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--text-light);
       margin-bottom: 10px;
       display: flex;
@@ -205,12 +208,12 @@
     }
     .sidebar-education li i {
       color: var(--primary);
-      font-size: 15px;
+      font-size: 14px;
       margin-top: 3px;
       flex-shrink: 0;
     }
     .sidebar-education .edu-degree { font-weight: 700; color: var(--text); }
-    .sidebar-education .edu-school { font-size: 15px; }
+    .sidebar-education .edu-school { font-size: 13px; }
 
     /* ── MAIN CONTENT ── */
     .main {
@@ -594,11 +597,11 @@
       <h3>Interests</h3>
       <ul>
         <li><i class="fas fa-chevron-right"></i> Computational Biology</li>
-        <li><i class="fas fa-chevron-right"></i> Machine Learning &amp; Graph Neural Networks</li>
+        <li><i class="fas fa-chevron-right"></i> Machine Learning &amp; GNNs</li>
         <li><i class="fas fa-chevron-right"></i> Cheminformatics</li>
         <li><i class="fas fa-chevron-right"></i> Drug Discovery</li>
-        <li><i class="fas fa-chevron-right"></i> Gut Microbiome Metabolism &amp; Disease Relation</li>
-        <li><i class="fas fa-chevron-right"></i> Large Language Models for Biology</li>
+        <li><i class="fas fa-chevron-right"></i> Gut Microbiome</li>
+        <li><i class="fas fa-chevron-right"></i> LLMs for Biology</li>
       </ul>
     </div>
 
@@ -633,15 +636,15 @@
   <div class="main">
     <h2 class="welcome">Welcome!</h2>
     <div class="bio">
-      <p>I'm a <a href="https://www.lsu.edu/science/biosci/index.php" target="_blank">Biological Sciences</a> PhD at <strong> Louisiana State University</strong>, where I develop machine learning frameworks to understand complex biological systems at the intersection of computational biology, cheminformatics, and drug discovery.</p>
+      <p>I'm a Biological Sciences PhD candidate at <a href="https://www.lsu.edu" target="_blank">Louisiana State University</a>, where I develop machine learning frameworks to understand complex biological systems at the intersection of computational biology, cheminformatics, and drug discovery.</p>
 
-      <p>My research focuses on building data-driven approaches to elucidate <strong>bacteria–metabolite interactions in the human gut microbiome</strong>, leveraging enzyme encodings and metabolite structural embeddings across various mammalian gut bacterial species. A significant part of my work involves designing <strong> data analysis approaches and graph neural network (GNN) models</strong> to predict gut bacteria metabolism, synergistic anticancer drug combinations, enhanced by novel data augmentation strategies. I have also created biopython based data curation and cleaning pipelines for to projects related to ligand-binding site classification.</p>
+      <p>My research focuses on building data-driven approaches to predict <strong>bacteria–metabolite interactions in the human gut microbiome</strong>, leveraging enzyme encodings and metabolite structural embeddings across 312 bacterial species. A significant part of my work involves designing <strong>graph neural network (GNN) models</strong> to predict synergistic anticancer drug combinations, enhanced by novel data augmentation strategies that boosted dataset size by 62.5%. I have also contributed to deep learning methods for <strong>protein structure and function prediction</strong>, including ligand-binding site classification and target-based drug design.</p>
 
-      <p>At LSU, I am fortunate to be mentored by <a href="https://www.brylinski.org" target="_blank">Dr. Michal Brylinski</a>. My academic journey includes a BS-MS Dual Degree in Chemistry from the <a href="https://www.iiserb.ac.in" target="_blank">Indian Institute of Science Education and Research Bhopal</a>, where I developed cheminformatics tools for toxicity prediction and biofilm-inhibitory molecule classification, and an MS in Chemistry from <a href="https://www.osu.edu" target="_blank">The Ohio State University</a> where I worked on deep neural network based prediction of newtonian forces on the dipeptide atoms calculated using MD trajectories.</p>
+      <p>At LSU, I am fortunate to be mentored by <a href="https://www.brylinski.org" target="_blank">Dr. Michal Brylinski</a>. My journey in science includes a BS-MS Dual Degree from the <a href="https://www.iiserb.ac.in" target="_blank">Indian Institute of Science Education and Research Bhopal</a>, where I developed cheminformatics tools for toxicity prediction and biofilm-inhibitory molecule classification, and an MS from <a href="https://www.osu.edu" target="_blank">The Ohio State University</a>.</p>
 
-      <p>I've also worked as a Research Associate at the <a href="https://aggrc.com" target="_blank">Aquatic Germplasm and Genetic Resources Center</a>, where I developed high-performance image classification tools using YOLOv10b with 96% accuracy to classify the fertilized embryos from unfertilized eggs in <i>Xenopus laevis</i>. Currently, I am exploring <strong>LLM-based approaches for binding affinity prediction &amp; antibiotic resistance modeling in microbes</strong>.</p>
+      <p>I've also worked as a Research Associate at the <a href="https://www.lsu.edu/agriculture/aq-germplasm/index.php" target="_blank">Aquatic Germplasm and Genetic Resources Center</a>, where I developed high-performance image classification tools using YOLOv10b with 96% accuracy. Currently, I am exploring <strong>LLM-based approaches for binding affinity prediction</strong> and antibiotic resistance modeling in microbes.</p>
 
-      <p>I'm always open to discussing computational biology, new research, or potential collaborations. Feel free to explore my <a href="#publications">Publications</a>, or connect with me on <a href="https://www.linkedin.com/in/gopal-narayan-srivastava/" target="_blank">LinkedIn</a>.</p>
+      <p>I'm always open to discussing computational biology, new research, or potential collaborations. Feel free to explore my <a href="#publications">publications</a>, or connect with me on <a href="https://www.linkedin.com/in/gopal-narayan-srivastava/" target="_blank">LinkedIn</a>.</p>
     </div>
   </div>
 </section>
@@ -676,18 +679,6 @@
       <div class="project-card" data-tags="ml bio">
         <div class="project-thumb" style="background:linear-gradient(135deg,#7b1fa2,#ce93d8)"><i class="fas fa-pills"></i></div>
         <div class="project-body">
-          <h3><a href="https://doi.org/10.1038/s41598-024-51940-9" target="_blank">Data Augmentation: Anticancer Drug Synergy</a></h3>
-          <p>Augmented drug combination dataset to improve the performance of machine learning models predicting synergistic anticancer effects.</p>
-          <div class="project-links">
-            <a href="https://www.nature.com/articles/s41598-024-51940-9" target="_blank"><i class="fas fa-file-alt"></i> Paper</a>
-            <a href="https://github.com/MengLiu90/Synergy-Data-Augmentation" target="_blank"><i class="fab fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card" data-tags="ml bio">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#7b1fa2,#ce93d8)"><i class="fas fa-pills"></i></div>
-        <div class="project-body">
           <h3><a href="https://doi.org/10.3390/biom14030253" target="_blank">SynerGNet: Anticancer Drug Synergy</a></h3>
           <p>Graph Neural Network model to predict synergistic anticancer drug pairs across 5 cancer types, with a data augmentation pipeline increasing dataset by 62.5%.</p>
           <div class="project-links">
@@ -700,7 +691,7 @@
       <div class="project-card" data-tags="ml bio">
         <div class="project-thumb" style="background:linear-gradient(135deg,#00695c,#4db6ac)"><i class="fas fa-dna"></i></div>
         <div class="project-body">
-          <h3><a href="https://doi.org/10.3390/biom12081053" target="_blank">GraphSite</a></h3>
+          <h3><a href="https://doi.org/10.3390/biom12081053" target="_blank">GraphSite &amp; Pocket2Drug</a></h3>
           <p>Deep graph learning for ligand binding site classification and encoder-decoder neural network for target-based drug design on ~51,677 protein-ligand complexes.</p>
           <div class="project-links">
             <a href="https://doi.org/10.3389/fphar.2022.837715" target="_blank"><i class="fas fa-file-alt"></i> Paper</a>
@@ -710,12 +701,12 @@
       </div>
 
       <div class="project-card" data-tags="cv ml">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#e65100,#ffb74d)"><i class="fas fa-frog"></i></div>
+        <div class="project-thumb" style="background:linear-gradient(135deg,#e65100,#ffb74d)"><i class="fas fa-fish"></i></div>
         <div class="project-body">
-          <h3><i>Xenopus laevis</i>:Egg Fertilization Classification</h3>
+          <h3>Aquatic Specimen Image Classifier</h3>
           <p>PyQt6 macOS app using YOLOv10b for high-performance image classification with 96% accuracy, processing 20-image batches in under 5 minutes.</p>
           <div class="project-links">
-            <a href="https://github.com/mpande2/EmbryoDetection" target="_blank"><i class="fab fa-github"></i> Code</a>
+            <a href="https://github.com/gnsrivastava" target="_blank"><i class="fab fa-github"></i> Code</a>
           </div>
         </div>
       </div>
@@ -732,7 +723,7 @@
       </div>
 
       <div class="project-card" data-tags="chemo ml">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#bf360c,#ff8a65)"><i class="fas fa-skull-crossbones"></i></div>
+        <div class="project-thumb" style="background:linear-gradient(135deg,#bf360c,#ff8a65)"><i class="fas fa-flask"></i></div>
         <div class="project-body">
           <h3><a href="https://doi.org/10.3389/fphar.2017.00880" target="_blank">ToxiM: Toxicity Prediction Tool</a></h3>
           <p>R-based random forest model utilizing cheminformatics approaches for toxicity prediction of small molecules along with solubility and permeability models.</p>
@@ -861,7 +852,7 @@
     <div class="section-header"><h2>Skills &amp; Tools</h2></div>
     <div class="skills-grid">
       <div class="skill-group">
-        <h3><i class="fas fa-brain"></i> ML, AI &amp; Data Science</h3>
+        <h3><i class="fas fa-brain"></i> ML &amp; AI</h3>
         <div class="skill-tags">
           <span class="skill-tag">Graph Neural Networks</span>
           <span class="skill-tag">Random Forest</span>
@@ -882,16 +873,10 @@
           <span class="skill-tag">TensorFlow</span>
           <span class="skill-tag">Keras</span>
           <span class="skill-tag">Scikit-Learn</span>
-          <span class="skill-tag">HPC (SLURM)</span>
-          <span class="skill-tag">Linux</span>
-          <span class="skill-tag">Pandas</span>
-          <span class="skill-tag">NumPy</span>
-          <span class="skill-tag">SciPy</span>
-          <span class="skill-tag">PyQt6</span>
         </div>
       </div>
       <div class="skill-group">
-        <h3><i class="fas fa-dna"></i> Bioinformatics &amp; Cheminformatics</h3>
+        <h3><i class="fas fa-dna"></i> Bioinformatics</h3>
         <div class="skill-tags">
           <span class="skill-tag">BioPython</span>
           <span class="skill-tag">BLAST</span>
@@ -901,20 +886,31 @@
           <span class="skill-tag">Trimmomatic</span>
           <span class="skill-tag">Samtools</span>
           <span class="skill-tag">BCFTools</span>
-          <span class="skill-tag">ChemBERTa</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3><i class="fas fa-flask"></i> Cheminformatics</h3>
+        <div class="skill-tags">
           <span class="skill-tag">RDKit</span>
           <span class="skill-tag">OpenBabel</span>
           <span class="skill-tag">Mol2Vec</span>
           <span class="skill-tag">PadeL</span>
           <span class="skill-tag">Datamol</span>
           <span class="skill-tag">ChimeraX</span>
+          <span class="skill-tag">Fpocket</span>
           <span class="skill-tag">ChemDraw</span>
           <span class="skill-tag">PDBTools</span>
-          <span class="skill-tag">Fpocket</span>
-          <span class="skill-tag">ProtLLM</span>
-          <span class="skill-tag">CompareM</span>
-          <span class="skill-tag">Diamond</span>
-          <span class="skill-tag">GROMACS: MD Simulations</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3><i class="fas fa-server"></i> Infrastructure</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">HPC (SLURM)</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">NumPy</span>
+          <span class="skill-tag">SciPy</span>
+          <span class="skill-tag">PyQt6</span>
         </div>
       </div>
     </div>
@@ -975,7 +971,7 @@
           <h3>CutShort Certified Python — Advanced</h3>
           <div class="cert-meta">Credential ID: 46281</div>
           <div class="cert-links">
-            <a href="https://cutshort.io/certificate/46281" target="_blank"><i class="fas fa-external-link-alt"></i> Certificate</a>
+            <a href="https://cutshort.io/certificate/46281" target="_blank"><i class="fas fa-external-link-alt"></i> Verify</a>
           </div>
         </div>
       </div>
@@ -986,7 +982,7 @@
           <h3>Python Data Structure</h3>
           <div class="cert-meta">Coursera · Credential ID: QPXBR3RLGSQG</div>
           <div class="cert-links">
-            <a href="https://www.coursera.org/account/accomplishments/verify/QPXBR3RLGSQG" target="_blank"><i class="fas fa-external-link-alt"></i> Certificate</a>
+            <a href="https://www.coursera.org/account/accomplishments/verify/QPXBR3RLGSQG" target="_blank"><i class="fas fa-external-link-alt"></i> Verify</a>
           </div>
         </div>
       </div>
@@ -997,7 +993,7 @@
           <h3>Artificial Intelligence Foundations: Machine Learning</h3>
           <div class="cert-meta">LinkedIn · Credential ID: AS_MDYH1OXWhgYk9yQVtUTJYDT3i</div>
           <div class="cert-links">
-            <a href="https://drive.google.com/file/d/12MteXvxep9tIEYPM3UWsPxLZ-AGf9uy6/view?usp=sharing" target="_blank"><i class="fas fa-external-link-alt"></i> Certificate</a>
+            <a href="https://drive.google.com/file/d/12MteXvxep9tIEYPM3UWsPxLZ-AGf9uy6/view?usp=sharing" target="_blank"><i class="fas fa-external-link-alt"></i> Verify</a>
           </div>
         </div>
       </div>
@@ -1008,7 +1004,7 @@
           <h3>Programming for Everybody (Getting Started with Python)</h3>
           <div class="cert-meta">Coursera · Credential ID: Y2WJJGCVYLJH</div>
           <div class="cert-links">
-            <a href="https://www.coursera.org/account/accomplishments/certificate/Y2WJJGCVYLJH" target="_blank"><i class="fas fa-external-link-alt"></i> Certificate</a>
+            <a href="https://www.coursera.org/account/accomplishments/certificate/Y2WJJGCVYLJH" target="_blank"><i class="fas fa-external-link-alt"></i> Verify</a>
           </div>
         </div>
       </div>
@@ -1020,6 +1016,7 @@
           <div class="cert-meta">EICT, IIT Kanpur · Credential ID: 31564-12702-d06a8731226ea8a7</div>
           <div class="cert-links">
             <a href="https://drive.google.com/file/d/1Tj0gkMJX97WlvbE46iHurtG6NOIzaY9K/view?usp=sharing" target="_blank"><i class="fas fa-file-alt"></i> Certificate</a>
+            <a href="https://ict.iitk.ac.in/certificate-verification" target="_blank"><i class="fas fa-external-link-alt"></i> Verify</a>
           </div>
         </div>
       </div>
@@ -1030,7 +1027,7 @@
           <h3>Advanced C Programming</h3>
           <div class="cert-meta">LinkedIn · Credential ID: AXe_ga1SzruJWxxeUBWlQBZZPakK</div>
           <div class="cert-links">
-            <a href="https://drive.google.com/file/d/1UbOtF5MGe-Ltmz5JT8Hygh9eX-DiGs5P/view?usp=sharing" target="_blank"><i class="fas fa-external-link-alt"></i> Certificate</a>
+            <a href="https://drive.google.com/file/d/1UbOtF5MGe-Ltmz5JT8Hygh9eX-DiGs5P/view?usp=sharing" target="_blank"><i class="fas fa-external-link-alt"></i> Verify</a>
           </div>
         </div>
       </div>
@@ -1041,7 +1038,7 @@
           <h3>Learning Linux Command Line</h3>
           <div class="cert-meta">LinkedIn · Credential ID: AQniwv8BboKpRsTBjTeKu2N0cqsq</div>
           <div class="cert-links">
-            <a href="https://drive.google.com/file/d/1wjvdVYYcgl69ZKpLKlZObg_aPcfnxXa7/view?usp=sharing" target="_blank"><i class="fas fa-external-link-alt"></i> Certificate</a>
+            <a href="https://drive.google.com/file/d/1wjvdVYYcgl69ZKpLKlZObg_aPcfnxXa7/view?usp=sharing" target="_blank"><i class="fas fa-external-link-alt"></i> Verify</a>
           </div>
         </div>
       </div>
@@ -1051,17 +1048,14 @@
 </div>
 
 <!-- ═══ CONTACT ═══ -->
-<<section class="section" id="contact">
+<section class="section" id="contact">
   <div class="section-header"><h2>Contact</h2></div>
   <div class="contact-grid">
     <div class="contact-item">
       <i class="fas fa-envelope"></i>
-      <div><a href="mailto:gsriva2@lsu.edu">gsriva2@lsu.edu</a></div>
+      <div><a href="mailto:gsriva2@lsu.edu">gsriva2@lsu.edu</a></div><p>
+      <div><a href="mailto:gnsforthestudy@gmail.com">gnsforthestudy@gmail.com</a></p></div>
     </div>
-    <div class="contact-item">
-      <i class="fas fa-envelope"></i>
-      <div><a href="mailto:gnsforthestudy@gmail.com">gnsforthestudy@gmail.com</a></div>
-      </div>
     <div class="contact-item">
       <i class="fas fa-map-marker-alt"></i>
       <div><span>Department of Biological Sciences<br/>Louisiana State University<br/>Baton Rouge, LA 70803</span></div>
