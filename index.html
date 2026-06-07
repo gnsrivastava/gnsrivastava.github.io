@@ -428,14 +428,24 @@
     .award-item p { font-size: 13px; color: var(--text-muted); }
 
     /* ── CERTIFICATES ── */
-    .cert-list { max-width: 700px; margin: 0 auto; }
+    .cert-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
     .cert-item {
       display: flex;
       gap: 16px;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--border);
+      padding: 20px;
+      background: var(--bg);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s, transform 0.2s;
     }
-    .cert-item:last-child { border-bottom: none; }
+    .cert-item:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
     .cert-icon {
       flex-shrink: 0;
       width: 36px;
@@ -535,6 +545,7 @@
       .nav-links.open a { padding: 10px 14px; }
       .hamburger { display: block; }
       .project-grid { grid-template-columns: 1fr; }
+      .cert-list { grid-template-columns: 1fr; }
     }
   </style>
 </head>
