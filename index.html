@@ -348,6 +348,73 @@
       gap: 4px;
     }
 
+
+    /* ── PROJECT IMAGES & LIGHTBOX ── */
+    .project-thumb { position: relative; overflow: hidden; }
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: #fff;
+      transition: transform 0.4s ease;
+      cursor: zoom-in;
+    }
+    .project-thumb.contain img { object-fit: contain; }
+    .project-card:hover .project-thumb img { transform: scale(1.06); }
+    .project-thumb .zoom-hint {
+      position: absolute;
+      right: 10px; bottom: 10px;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+    }
+    .project-card:hover .zoom-hint { opacity: 1; }
+    .project-card { animation: cardIn 0.35s ease both; }
+    @keyframes cardIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: min(1100px, 100%);
+      max-height: 80vh;
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    }
+    .lightbox-caption {
+      color: #fff;
+      margin-top: 14px;
+      font-size: 15px;
+      text-align: center;
+      max-width: 900px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 16px; right: 20px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 32px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
     /* ── PUBLICATIONS ── */
     .pub-list { display: flex; flex-direction: column; gap: 0; }
     .pub-item {
@@ -691,90 +758,7 @@
       <button onclick="filterProjects('cv', this)">Computer Vision</button>
     </div>
 
-    <div class="project-grid" id="projectGrid">
-
-      <div class="project-card" data-tags="ml bio">
-        <div class="project-thumb"><i class="fas fa-bacterium"></i></div>
-        <div class="project-body">
-          <h3><a href="https://doi.org/10.3390/nu17030469" target="_blank">Gut Microbiome Metabolite Prediction</a></h3>
-          <p>ML pipeline using Random Forest &amp; KNN to predict gut microbial metabolism across 312 species and 154 metabolites — 74% consumption and 95% production accuracy.</p>
-          <div class="project-links">
-            <a href="https://doi.org/10.3390/nu17030469" target="_blank"><i class="fas fa-file-alt"></i> Paper</a>
-            <a href="https://github.com/gnsrivastava/GutMicrobeMetaboliteInteraction" target="_blank"><i class="fab fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card" data-tags="ml bio">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#7b1fa2,#ce93d8)"><i class="fas fa-pills"></i></div>
-        <div class="project-body">
-          <h3><a href="https://doi.org/10.1038/s41598-024-51940-9" target="_blank">Data Augmentation: Anticancer Drug Synergy</a></h3>
-          <p>Augmented drug combination dataset to improve the performance of machine learning models predicting synergistic anticancer effects.</p>
-          <div class="project-links">
-            <a href="https://www.nature.com/articles/s41598-024-51940-9" target="_blank"><i class="fas fa-file-alt"></i> Paper</a>
-            <a href="https://github.com/MengLiu90/Synergy-Data-Augmentation" target="_blank"><i class="fab fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card" data-tags="ml bio">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#7b1fa2,#ce93d8)"><i class="fas fa-pills"></i></div>
-        <div class="project-body">
-          <h3><a href="https://doi.org/10.3390/biom14030253" target="_blank">SynerGNet: Anticancer Drug Synergy</a></h3>
-          <p>Graph Neural Network model to predict synergistic anticancer drug pairs across 5 cancer types, with a data augmentation pipeline increasing dataset by 62.5%.</p>
-          <div class="project-links">
-            <a href="https://doi.org/10.3390/biom14030253" target="_blank"><i class="fas fa-file-alt"></i> Paper</a>
-            <a href="https://github.com/MengLiu90/Analysis_for_Synergy_Data_Augmentation" target="_blank"><i class="fab fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card" data-tags="ml bio">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#00695c,#4db6ac)"><i class="fas fa-dna"></i></div>
-        <div class="project-body">
-          <h3><a href="https://doi.org/10.3390/biom12081053" target="_blank">GraphSite</a></h3>
-          <p>Deep graph learning for ligand binding site classification and encoder-decoder neural network for target-based drug design on ~51,677 protein-ligand complexes.</p>
-          <div class="project-links">
-            <a href="https://doi.org/10.3389/fphar.2022.837715" target="_blank"><i class="fas fa-file-alt"></i> Paper</a>
-            <a href="https://github.com/shiwentao00/Graphsite-classifier" target="_blank"><i class="fab fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card" data-tags="cv ml">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#e65100,#ffb74d)"><i class="fas fa-frog"></i></div>
-        <div class="project-body">
-          <h3><i>Xenopus laevis</i>: Egg Fertilization Classification</h3>
-          <p>PyQt6 macOS app using YOLOv10b for high-performance image classification with 96% accuracy, processing 20-image batches in under 5 minutes.</p>
-          <div class="project-links">
-            <a href="https://github.com/mpande2/EmbryoDetection" target="_blank"><i class="fab fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card" data-tags="chemo ml">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#283593,#7986cb)"><i class="fas fa-atom"></i></div>
-        <div class="project-body">
-          <h3><a href="https://doi.org/10.1016/j.ygeno.2019.07.026" target="_blank">Molib: Biofilm Inhibitor Classifier</a></h3>
-          <p>R-based ML classifier for predicting biofilm-inhibitory molecules using Random Forest and molecular descriptors — 93.9% accuracy.</p>
-          <div class="project-links">
-            <a href="https://doi.org/10.1016/j.ygeno.2019.07.026" target="_blank"><i class="fas fa-file-alt"></i> Paper</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card" data-tags="chemo ml">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#bf360c,#ff8a65)"><i class="fas fa-skull-crossbones"></i></div>
-        <div class="project-body">
-          <h3><a href="https://doi.org/10.3389/fphar.2017.00880" target="_blank">ToxiM: Toxicity Prediction Tool</a></h3>
-          <p>R-based random forest model utilizing cheminformatics approaches for toxicity prediction of small molecules along with solubility and permeability models.</p>
-          <div class="project-links">
-            <a href="https://doi.org/10.3389/fphar.2017.00880" target="_blank"><i class="fas fa-file-alt"></i> Paper</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    <div class="project-grid" id="projectGrid"></div>
   </section>
 </div>
 
@@ -861,7 +845,7 @@
     </div>
 
     <div class="pub-item">
-      <div class="pub-title-text"><a href="https://doi.org/10.1016/j.ygeno.2019.07.026" target="_blank">Molib: A Machine Learning Based Classification Tool for the Prediction of Biofilm Inhibitory Molecules</a></div>
+      <div class="pub-title-text"><a href="https://www.sciencedirect.com/science/article/pii/S088875431930549X" target="_blank">Molib: A Machine Learning Based Classification Tool for the Prediction of Biofilm Inhibitory Molecules</a></div>
       <div class="pub-authors"><strong>Srivastava, G.N.</strong>; Malwe, A.S.; Sharma, A.K.; Shastri, V.; Hibare, K.; Sharma, V.K.</div>
       <div class="pub-venue">Genomics 112(4), 2823–2832, 2020</div>
       <div class="pub-badges"><a class="pub-badge doi" href="https://doi.org/10.1016/j.ygeno.2019.07.026" target="_blank"><i class="fas fa-link"></i> DOI</a></div>
@@ -1116,12 +1100,187 @@
   </div>
 </section>
 
+<!-- ═══ LIGHTBOX ═══ -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <img id="lightboxImg" src="" alt="" />
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
 <footer>
   &copy; 2026 Gopal Narayan Srivastava
 </footer>
 
 <script>
-  // Hamburger
+  // ═══ PROJECT DATA ═══
+  // To add a project, add one entry here and put its graphical abstract in images/.
+  // If an image file is missing, the card falls back to the icon + gradient.
+  // fit: "contain" shows the whole figure; "cover" fills the card (may crop).
+  const projects = [
+    {
+      title: "Gut Microbiome Metabolite Prediction",
+      url: "https://doi.org/10.3390/nu17030469",
+      desc: "ML pipeline using Random Forest &amp; KNN to predict gut microbial metabolism across 312 species and 154 metabolites — 74% consumption and 95% production accuracy.",
+      tags: ["ml", "bio"],
+      image: "images/gut-microbiome.png",
+      fit: "contain",
+      icon: "fa-bacterium",
+      gradient: "linear-gradient(135deg,#1565c0,#1976d2)",
+      links: [
+        { label: "Paper", icon: "fas fa-file-alt", url: "https://doi.org/10.3390/nu17030469" },
+        { label: "Code",  icon: "fab fa-github",   url: "https://github.com/gnsrivastava/GutMicrobeMetaboliteInteraction" }
+      ]
+    },
+    {
+      title: "Data Augmentation: Anticancer Drug Synergy",
+      url: "https://doi.org/10.1038/s41598-024-51455-3",
+      desc: "Augmented drug combination dataset to improve the performance of machine learning models predicting synergistic anticancer effects.",
+      tags: ["ml", "bio"],
+      image: "images/synergy-augmentation.png",
+      fit: "contain",
+      icon: "fa-pills",
+      gradient: "linear-gradient(135deg,#7b1fa2,#ce93d8)",
+      links: [
+        { label: "Paper", icon: "fas fa-file-alt", url: "https://doi.org/10.1038/s41598-024-51455-3" },
+        { label: "Code",  icon: "fab fa-github",   url: "https://github.com/MengLiu90/Synergy-Data-Augmentation" }
+      ]
+    },
+    {
+      title: "SynerGNet: Anticancer Drug Synergy",
+      url: "https://doi.org/10.3390/biom14030253",
+      desc: "Graph Neural Network model to predict synergistic anticancer drug pairs across 5 cancer types, with a data augmentation pipeline increasing dataset by 62.5%.",
+      tags: ["ml", "bio"],
+      image: "images/synergnet.png",
+      fit: "contain",
+      icon: "fa-pills",
+      gradient: "linear-gradient(135deg,#7b1fa2,#ce93d8)",
+      links: [
+        { label: "Paper", icon: "fas fa-file-alt", url: "https://doi.org/10.3390/biom14030253" },
+        { label: "Code",  icon: "fab fa-github",   url: "https://github.com/MengLiu90/Analysis_for_Synergy_Data_Augmentation" }
+      ]
+    },
+    {
+      title: "GraphSite",
+      url: "https://doi.org/10.3390/biom12081053",
+      desc: "Deep graph learning for ligand binding site classification and encoder-decoder neural network for target-based drug design on ~51,677 protein-ligand complexes.",
+      tags: ["ml", "bio"],
+      image: "images/graphsite.png",
+      fit: "contain",
+      icon: "fa-dna",
+      gradient: "linear-gradient(135deg,#00695c,#4db6ac)",
+      links: [
+        { label: "Paper", icon: "fas fa-file-alt", url: "https://doi.org/10.3390/biom12081053" },
+        { label: "Code",  icon: "fab fa-github",   url: "https://github.com/shiwentao00/Graphsite-classifier" }
+      ]
+    },
+    {
+      title: "<i>Xenopus laevis</i>: Egg Fertilization Classification",
+      url: "",
+      desc: "PyQt6 macOS app using YOLOv10b for high-performance image classification with 96% accuracy, processing 20-image batches in under 5 minutes.",
+      tags: ["cv", "ml"],
+      image: "images/xenopus.png",
+      fit: "cover",
+      icon: "fa-frog",
+      gradient: "linear-gradient(135deg,#e65100,#ffb74d)",
+      links: [
+        { label: "Code", icon: "fab fa-github", url: "https://github.com/mpande2/EmbryoDetection" }
+      ]
+    },
+    {
+      title: "Molib: Biofilm Inhibitor Classifier",
+      url: "https://www.sciencedirect.com/science/article/pii/S088875431930549X",
+      desc: "R-based ML classifier for predicting biofilm-inhibitory molecules using Random Forest and molecular descriptors — 93.9% accuracy.",
+      tags: ["chemo", "ml"],
+      image: "images/molib.png",
+      fit: "contain",
+      icon: "fa-atom",
+      gradient: "linear-gradient(135deg,#283593,#7986cb)",
+      links: [
+        { label: "Paper", icon: "fas fa-file-alt", url: "https://doi.org/10.1016/j.ygeno.2019.07.026" }
+      ]
+    },
+    {
+      title: "ToxiM: Toxicity Prediction Tool",
+      url: "https://doi.org/10.3389/fphar.2017.00880",
+      desc: "R-based random forest model utilizing cheminformatics approaches for toxicity prediction of small molecules along with solubility and permeability models.",
+      tags: ["chemo", "ml"],
+      image: "images/toxim.png",
+      fit: "contain",
+      icon: "fa-skull-crossbones",
+      gradient: "linear-gradient(135deg,#bf360c,#ff8a65)",
+      links: [
+        { label: "Paper", icon: "fas fa-file-alt", url: "https://doi.org/10.3389/fphar.2017.00880" }
+      ]
+    }
+  ];
+
+  // ═══ RENDER CARDS ═══
+  function iconThumb(p) {
+    return `<div class="project-thumb" style="background:${p.gradient}"><i class="fas ${p.icon}"></i></div>`;
+  }
+
+  function renderProjects() {
+    const grid = document.getElementById('projectGrid');
+    grid.innerHTML = projects.map((p, i) => {
+      const plainTitle = p.title.replace(/<[^>]+>/g, '');
+      const thumb = p.image
+        ? `<div class="project-thumb ${p.fit === 'contain' ? 'contain' : ''}" data-index="${i}">
+             <img src="${p.image}" alt="Graphical abstract: ${plainTitle}" loading="lazy" />
+             <span class="zoom-hint"><i class="fas fa-search-plus"></i> View</span>
+           </div>`
+        : iconThumb(p);
+      const title = p.url
+        ? `<a href="${p.url}" target="_blank" rel="noopener">${p.title}</a>`
+        : p.title;
+      const links = p.links.map(l =>
+        `<a href="${l.url}" target="_blank" rel="noopener"><i class="${l.icon}"></i> ${l.label}</a>`
+      ).join('');
+      return `
+        <div class="project-card" data-tags="${p.tags.join(' ')}" style="animation-delay:${i * 60}ms">
+          ${thumb}
+          <div class="project-body">
+            <h3>${title}</h3>
+            <p>${p.desc}</p>
+            <div class="project-links">${links}</div>
+          </div>
+        </div>`;
+    }).join('');
+
+    // Fall back to the icon if an image is missing
+    grid.querySelectorAll('.project-thumb img').forEach(img => {
+      img.addEventListener('error', () => {
+        const thumb = img.closest('.project-thumb');
+        thumb.outerHTML = iconThumb(projects[thumb.dataset.index]);
+      });
+    });
+
+    // Open the lightbox on image click
+    grid.querySelectorAll('.project-thumb[data-index]').forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const p = projects[thumb.dataset.index];
+        openLightbox(p.image, p.title);
+      });
+    });
+  }
+
+  // ═══ LIGHTBOX ═══
+  const lightbox = document.getElementById('lightbox');
+  function openLightbox(src, caption) {
+    const img = document.getElementById('lightboxImg');
+    img.src = src;
+    img.alt = caption.replace(/<[^>]+>/g, '');
+    document.getElementById('lightboxCaption').innerHTML = caption;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+  }
+  lightbox.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // ═══ NAV ═══
   document.getElementById('hamburger').addEventListener('click', () => {
     document.getElementById('navLinks').classList.toggle('open');
   });
@@ -1129,18 +1288,18 @@
     a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
   });
 
-  // Project filter
+  // ═══ PROJECT FILTER ═══
   function filterProjects(tag, btn) {
     document.querySelectorAll('.project-filters button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     document.querySelectorAll('.project-card').forEach(card => {
-      if (tag === 'all' || card.dataset.tags.includes(tag)) {
-        card.style.display = '';
-      } else {
-        card.style.display = 'none';
-      }
+      const show = tag === 'all' || card.dataset.tags.split(' ').includes(tag);
+      card.style.display = show ? '' : 'none';
+      if (show) { card.style.animation = 'none'; card.offsetHeight; card.style.animation = ''; }
     });
   }
+
+  renderProjects();
 </script>
 
 </body>
