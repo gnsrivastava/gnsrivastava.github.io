@@ -89,7 +89,6 @@
     .hero {
       padding-top: 50px;
       display: flex;
-      min-height: 100vh;
     }
     .sidebar {
       width: var(--sidebar-width);
@@ -221,9 +220,21 @@
     .main {
       flex: 1;
       min-width: 0;
-      padding: 60px 48px 80px;
-      max-width: 820px;
+      padding: 60px 48px 40px;
+      max-width: 1200px;
     }
+    .main-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 270px;
+      gap: 48px;
+      align-items: start;
+    }
+    .side-info {
+      padding-left: 32px;
+      border-left: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    .side-info .sidebar-interests { margin-top: 0; }
     .main h2.welcome {
       font-size: 28px;
       font-weight: 900;
@@ -250,6 +261,7 @@
       margin: 0 auto;
       padding: 70px 48px;
     }
+    #projects { padding-top: 40px; }
     .section-header {
       text-align: center;
       margin-bottom: 48px;
@@ -525,6 +537,11 @@
     }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .main-grid { grid-template-columns: 1fr; gap: 24px; }
+      .side-info { padding-left: 0; border-left: none; margin-top: 0; }
+    }
+
     @media (max-width: 900px) {
       .hero { flex-direction: column; }
       .sidebar {
@@ -533,7 +550,7 @@
         border-bottom: 1px solid var(--border);
         padding: 48px 24px 32px;
       }
-      .main { padding: 40px 24px 60px; max-width: 100%; }
+      .main { padding: 40px 24px 40px; max-width: 100%; }
       .section { padding: 50px 24px; }
       .nav-links { display: none; }
       .nav-links.open {
@@ -587,70 +604,77 @@
     <div class="sidebar-divider"></div>
 
     <div class="sidebar-links">
-      <a href="mailto:gsriva2@lsu.edu" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="mailto:gsriva@umich.edu" title="Email"><i class="fas fa-envelope"></i></a>
       <a href="https://scholar.google.com/citations?user=N_gpB7YAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
       <a href="https://www.linkedin.com/in/gopal-narayan-srivastava/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
       <a href="https://github.com/gnsrivastava" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://www.researchgate.net/profile/Gopal-Srivastava-2" target="_blank" title="ResearchGate"><i class="ai ai-researchgate"></i></a>
       <a href="https://orcid.org/0009-0006-4045-7971" target="_blank" title="ORCID"><i class="ai ai-orcid"></i></a>
     </div>
-
-    <div class="sidebar-interests">
-      <h3>Interests</h3>
-      <ul>
-        <li><i class="fas fa-chevron-right"></i> Computational Biology</li>
-        <li><i class="fas fa-chevron-right"></i> Machine Learning &amp; Graph Neural Networks</li>
-        <li><i class="fas fa-chevron-right"></i> Cheminformatics</li>
-        <li><i class="fas fa-chevron-right"></i> Drug Discovery</li>
-        <li><i class="fas fa-chevron-right"></i> Gut Microbiome Metabolism &amp; Disease Relation</li>
-        <li><i class="fas fa-chevron-right"></i> Large Language Models for Biology</li>
-      </ul>
-    </div>
-
-    <div class="sidebar-education">
-      <h3>Education</h3>
-      <ul>
-        <li>
-          <i class="fas fa-graduation-cap"></i>
-          <div>
-            <div class="edu-degree">PhD in Biological Sciences, 2026</div>
-            <div class="edu-school">Louisiana State University</div>
-          </div>
-        </li>
-        <li>
-          <i class="fas fa-graduation-cap"></i>
-          <div>
-            <div class="edu-degree">MS in Chemistry, 2020</div>
-            <div class="edu-school">The Ohio State University</div>
-          </div>
-        </li>
-        <li>
-          <i class="fas fa-graduation-cap"></i>
-          <div>
-            <div class="edu-degree">BS-MS in Chemistry, 2017</div>
-            <div class="edu-school">IISER Bhopal, India</div>
-          </div>
-        </li>
-      </ul>
-    </div>
   </aside>
 
   <div class="main">
-    <h2 class="welcome">Welcome!</h2>
-    <div class="bio">
-    <p>I'm a Postdoctoral Research Fellow in <a href="https://bme.umich.edu" target="_blank" rel="noopener">Biomedical Engineering</a> at the <strong>University of Michigan, Ann Arbor</strong>, where I develop machine learning frameworks to understand complex biological systems at the intersection of computational biology, cheminformatics, and drug discovery.</p>
+    <div class="main-grid">
 
-      <p>My research at U-M, mentored by <a href="https://systemsbiologylab.org" target="_blank" rel="noopener">Dr. Sriram Chandrasekaran</a>, focuses on building data-driven approaches to elucidate <strong>antifungal drug-pair synergy</strong>, leveraging protein sequence and drug structural embeddings across various fungal pathogens.</p>
+      <div class="main-text">
+        <h2 class="welcome">Welcome!</h2>
+        <div class="bio">
+          <p>I'm a Postdoctoral Research Fellow in <a href="https://bme.umich.edu" target="_blank" rel="noopener">Biomedical Engineering</a> at the <strong>University of Michigan, Ann Arbor</strong>, where I develop machine learning frameworks to understand complex biological systems at the intersection of computational biology, cheminformatics, and drug discovery.</p>
 
-      <p>I completed my PhD at Louisiana State University under the guidance of <a href="https://www.brylinski.org" target="_blank" rel="noopener">Dr. Michal Brylinski</a>. My doctoral research focused on data-driven approaches to elucidate bacteria–metabolite interactions in the human gut microbiome, leveraging enzyme encodings and metabolite structural embeddings across various mammalian gut bacterial species. A significant part of this work involved designing <strong>data analysis approaches and graph neural network (GNN) models</strong> to predict gut bacterial metabolism and synergistic anticancer drug combinations, enhanced by novel data augmentation strategies. I also built Biopython-based data curation and cleaning pipelines for projects on ligand-binding site classification.</p>
+          <p>My research at U-M, mentored by <a href="https://systemsbiologylab.org" target="_blank" rel="noopener">Dr. Sriram Chandrasekaran</a>, focuses on building data-driven approaches to elucidate <strong>antifungal drug-pair synergy</strong>, leveraging protein sequence and drug structural embeddings across various fungal pathogens.</p>
 
-      <p>My academic journey also includes a BS-MS dual degree in Chemistry from the <a href="https://www.iiserb.ac.in" target="_blank" rel="noopener">Indian Institute of Science Education and Research Bhopal</a>, where I developed cheminformatics tools for toxicity prediction and biofilm-inhibitory molecule classification, and an MS in Chemistry from <a href="https://www.osu.edu" target="_blank" rel="noopener">The Ohio State University</a>, where I worked on deep neural network–based prediction of Newtonian forces on dipeptide atoms calculated from MD trajectories.</p>
+          <p>I completed my PhD at Louisiana State University under the guidance of <a href="https://www.brylinski.org" target="_blank" rel="noopener">Dr. Michal Brylinski</a>. My doctoral research focused on data-driven approaches to elucidate bacteria–metabolite interactions in the human gut microbiome, leveraging enzyme encodings and metabolite structural embeddings across various mammalian gut bacterial species. A significant part of this work involved designing <strong>data analysis approaches and graph neural network (GNN) models</strong> to predict gut bacterial metabolism and synergistic anticancer drug combinations, enhanced by novel data augmentation strategies. I also built Biopython-based data curation and cleaning pipelines for projects on ligand-binding site classification.</p>
 
-      <p>I've also worked as a Research Associate at the <a href="https://aggrc.com" target="_blank" rel="noopener">Aquatic Germplasm and Genetic Resources Center</a>, where I developed high-performance image classification tools using YOLOv10b, achieving 96% accuracy in distinguishing fertilized embryos from unfertilized eggs in <i>Xenopus laevis</i>. Currently, I am exploring <strong>LLM-based approaches for binding affinity prediction and antibiotic resistance modeling in microbes</strong>.</p>
+          <p>My academic journey also includes a BS-MS dual degree in Chemistry from the <a href="https://www.iiserb.ac.in" target="_blank" rel="noopener">Indian Institute of Science Education and Research Bhopal</a>, where I developed cheminformatics tools for toxicity prediction and biofilm-inhibitory molecule classification, and an MS in Chemistry from <a href="https://www.osu.edu" target="_blank" rel="noopener">The Ohio State University</a>, where I worked on deep neural network–based prediction of Newtonian forces on dipeptide atoms calculated from MD trajectories.</p>
 
-      <p>I'm always open to discussing computational biology, new research, or potential collaborations. Feel free to explore my <a href="#publications">Publications</a> or connect with me on <a href="https://www.linkedin.com/in/gopal-narayan-srivastava/" target="_blank" rel="noopener">LinkedIn</a>.</p>
-    </div>  
-	</div>
+          <p>I've also worked as a Research Associate at the <a href="https://aggrc.com" target="_blank" rel="noopener">Aquatic Germplasm and Genetic Resources Center</a>, where I developed high-performance image classification tools using YOLOv10b, achieving 96% accuracy in distinguishing fertilized embryos from unfertilized eggs in <i>Xenopus laevis</i>. Currently, I am exploring <strong>LLM-based approaches for binding affinity prediction and antibiotic resistance modeling in microbes</strong>.</p>
+
+          <p>I'm always open to discussing computational biology, new research, or potential collaborations. Feel free to explore my <a href="#publications">Publications</a> or connect with me on <a href="https://www.linkedin.com/in/gopal-narayan-srivastava/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+        </div>
+      </div>
+
+      <aside class="side-info">
+        <div class="sidebar-interests">
+          <h3>Interests</h3>
+          <ul>
+            <li><i class="fas fa-chevron-right"></i> Computational Biology</li>
+            <li><i class="fas fa-chevron-right"></i> Machine Learning &amp; Graph Neural Networks</li>
+            <li><i class="fas fa-chevron-right"></i> Cheminformatics</li>
+            <li><i class="fas fa-chevron-right"></i> Drug Discovery</li>
+            <li><i class="fas fa-chevron-right"></i> Gut Microbiome Metabolism &amp; Disease Relation</li>
+            <li><i class="fas fa-chevron-right"></i> Large Language Models for Biology</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-education">
+          <h3>Education</h3>
+          <ul>
+            <li>
+              <i class="fas fa-graduation-cap"></i>
+              <div>
+                <div class="edu-degree">PhD in Biological Sciences, 2026</div>
+                <div class="edu-school">Louisiana State University</div>
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-graduation-cap"></i>
+              <div>
+                <div class="edu-degree">MS in Chemistry, 2020</div>
+                <div class="edu-school">The Ohio State University</div>
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-graduation-cap"></i>
+              <div>
+                <div class="edu-degree">BS-MS in Chemistry, 2017</div>
+                <div class="edu-school">IISER Bhopal, India</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+    </div>
   </div>
 </section>
 
@@ -720,7 +744,7 @@
       <div class="project-card" data-tags="cv ml">
         <div class="project-thumb" style="background:linear-gradient(135deg,#e65100,#ffb74d)"><i class="fas fa-frog"></i></div>
         <div class="project-body">
-          <h3><i>Xenopus laevis</i>:Egg Fertilization Classification</h3>
+          <h3><i>Xenopus laevis</i>: Egg Fertilization Classification</h3>
           <p>PyQt6 macOS app using YOLOv10b for high-performance image classification with 96% accuracy, processing 20-image batches in under 5 minutes.</p>
           <div class="project-links">
             <a href="https://github.com/mpande2/EmbryoDetection" target="_blank"><i class="fab fa-github"></i> Code</a>
@@ -933,11 +957,11 @@
 <section class="section" id="awards">
   <div class="section-header"><h2>Awards &amp; Honors</h2></div>
   <div class="awards-list">
-	<div class="award-item">
+    <div class="award-item">
       <div class="award-icon"><i class="fas fa-trophy"></i></div>
       <div>
         <h3>Michigan Pioneer Fellowship 2026</h3>
-        <p>University of Michigan, Ann Arbor, MI — awarded to 15 Postdoctoral researchers across UofM · Sept 2026</p>
+        <p>University of Michigan, Ann Arbor, MI — awarded to 15 postdoctoral researchers across U-M · Sept 2026</p>
       </div>
     </div>
     <div class="award-item">
@@ -1066,17 +1090,17 @@
 </div>
 
 <!-- ═══ CONTACT ═══ -->
-<<section class="section" id="contact">
+<section class="section" id="contact">
   <div class="section-header"><h2>Contact</h2></div>
   <div class="contact-grid">
     <div class="contact-item">
       <i class="fas fa-envelope"></i>
-      <div><a href="mailto:gsriva2@lsu.edu">gsriva@umich.edu</a></div>
+      <div><a href="mailto:gsriva@umich.edu">gsriva@umich.edu</a></div>
     </div>
     <div class="contact-item">
       <i class="fas fa-envelope"></i>
       <div><a href="mailto:gnsforthestudy@gmail.com">gnsforthestudy@gmail.com</a></div>
-      </div>
+    </div>
     <div class="contact-item">
       <i class="fas fa-map-marker-alt"></i>
       <div><span>Department of Biomedical Engineering<br/>University of Michigan<br/>Ann Arbor, MI 48105</span></div>
